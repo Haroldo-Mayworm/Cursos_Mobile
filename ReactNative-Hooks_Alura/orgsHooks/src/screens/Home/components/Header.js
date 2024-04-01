@@ -1,16 +1,35 @@
 import React from 'react';
 import { View, StyleSheet, Image, Text } from 'react-native';
 
+import { headerLoad, producersLoad } from '../../../services/dataLoad';
+
 import logo from '../assets/imgs/logo.png';
 
-export default function Header() {
-    return (
-        <View style={styles.container}>
-            <Image source={logo} style={styles.img} />
-            <Text style={styles.textOne}>Hello, Haroldo</Text>
-            <Text style={styles.textTwo}>Find the best producers</Text>
-        </View>
-    );
+class Header extends React.Component {
+    headerUpdate() {
+        const returnData = headerLoad();
+        console.log(returnData);
+    }
+
+    producersUpdate() {
+        const returnData = producersLoad();
+        console.log(returnData);
+    }
+
+    componentDidMount() {
+        this.headerUpdate();
+        this.producersUpdate();
+    }
+
+    render() {
+        return (
+            <View style={styles.container}>
+                <Image source={logo} style={styles.img} />
+                <Text style={styles.textOne}>Hello, Haroldo</Text>
+                <Text style={styles.textTwo}>Find the best producers</Text>
+            </View>
+        );
+    }
 }
 
 const styles = StyleSheet.create({
@@ -34,3 +53,5 @@ const styles = StyleSheet.create({
         lineHeight: 26,
     },
 });
+
+export default Header;
