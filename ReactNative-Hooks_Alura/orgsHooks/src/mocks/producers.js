@@ -1,10 +1,10 @@
 import imgGreen from '../screens/Home/assets/imgs/produtores/green.png';
-import imgGreen from '../screens/Home/assets/imgs/produtores/grow.png';
-import imgGreen from '../screens/Home/assets/imgs/produtores/jenny-jack.png';
-import imgGreen from '../screens/Home/assets/imgs/produtores/potager.png';
-import imgGreen from '../screens/Home/assets/imgs/produtores/salad.png';
+import imgGrow from '../screens/Home/assets/imgs/produtores/grow.png';
+import imgJennyJack from '../screens/Home/assets/imgs/produtores/jenny-jack.png';
+import imgPotager from '../screens/Home/assets/imgs/produtores/potager.png';
+import imgSalad from '../screens/Home/assets/imgs/produtores/salad.png';
 
-const generateRandomNumber = () => {
+const generateRandomNumber = (max, min) => {
     return Math.floor(Math.random() * (max - min + 1) + min);
 };
 
