@@ -1,15 +1,26 @@
-import React from 'react';
-import { View, StyleSheet, Image, Text } from 'react-native';
+import React, { useState } from 'react';
+import { TouchableOpacity, View, StyleSheet, Image, Text } from 'react-native';
+
+import Stars from '../../../components/Stars';
 
 export default function Producer({ name, img, distance, stars }) {
+    const [selected, setSelected] = useState(false);
+
     return (
-        <View style={styles.card}>
+        <TouchableOpacity style={styles.card} onPress={() => setSelected(!selected)}>
             <Image source={img} style={styles.img} accessibilityLabel={`Logo - {nome}`} />
             <View style={styles.infos}>
-                <Text style={styles.name}>{name}</Text>
+                <View>
+                    <Text style={styles.name}>{name}</Text>
+                    <Stars 
+                        quantity={stars} 
+                        editableStar={selected}
+                        bigStar={selected}
+                    />
+                </View>
                 <Text style={styles.distance}>{distance}</Text>
             </View>
-        </View>
+        </TouchableOpacity>
     );
 }
 
